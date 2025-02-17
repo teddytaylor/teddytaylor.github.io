@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Barlow:wght@300;400;700&display=swap");
+/*--------- DEFAULTS ---------*/
+:root {
+  --grey: #2d2d2d;
+  --white: #adadad;
+  --bright-white: #ffffff;
+  --black: #232323;
+  --gap: 1rem;
+  --radius: 1rem;
+}
+
+html {
+  box-sizing: border-box;
+  background: var(--black);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  font-family: "Barlow", sans-serif;
+  padding: 3rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.m-container {
+  padding: 3rem;
+  background: var(--grey);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.m-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.m-header h2 {
+  margin: 0;
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.m-header form input[type=text] {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0;
+  font-size: 1rem;
+}
+
+.m-weather {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.m-weather .m-weather__temperature {
+  font-size: 5rem;
+}
+
+.sunny .m-weather__temperature {
+  background-color: #f7e9a0;
+}
+
+.cloudy .m-weather__temperature {
+  background-color: #d3d3d3;
+}
+
+.rainy .m-weather__temperature {
+  background-color: #a0c4f7;
+}
+
+.snowy .m-weather__temperature {
+  background-color: #e0f7fa;
+}
+
+.loading {
+  font-size: 1.2em;
+  color: #888;
+}
+
+.error {
+  color: red;
+}

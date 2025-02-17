@@ -1,0 +1,26 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddytaylor/weather-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teddytaylor/weather-app/issues"
+  },
+  "homepage": "https://github.com/teddytaylor/weather-app#readme",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "sass": "^1.84.0"
+  },
+  "dependencies": {
+    "gulp-sass": "^6.0.0"
+  }
+}
