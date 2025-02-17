@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600&family=Barlow:wght@300;400;700&display=swap");
+/*--------- DEFAULTS ---------*/
+:root {
+  --grey: #2d2d2d;
+  --white: #adadad;
+  --bright-white: #ffffff;
+  --black: #232323;
+  --gap: 1rem;
+  --gap-large: 2.5rem;
+  --radius: 1rem;
+}
+
+html {
+  box-sizing: border-box;
+  background: var(--grey);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Barlow", sans-serif;
+}
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    overflow: visible;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  transition: all 0.2s ease;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+p a {
+  color: var(--bright-white);
+}
+p a:hover {
+  border-bottom: 1px solid;
+}
+
+.container {
+  max-width: 1920px;
+  color: var(--white);
+}
+
+/*--------- HEADER ---------*/
+.m-header {
+  background: rgb(35, 35, 35);
+  display: flex;
+  padding: var(--gap-large);
+  background: url("../../img/background.jpg") center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1001;
+}
+@media screen and (min-width: 768px) {
+  .m-header {
+    width: 15rem;
+    flex-direction: column;
+  }
+}
+.m-header__logo {
+  margin: 0 0 3rem;
+}
+@media screen and (max-width: 768px) {
+  .m-header__logo {
+    max-width: 5rem;
+    margin-bottom: 0;
+  }
+}
+.m-header__logo svg {
+  width: 100%;
+}
+.m-header__logo path {
+  fill: var(--white);
+}
+.m-header__logo:hover path {
+  fill: var(--bright-white);
+}
+.m-header__nav ul {
+  list-style: none;
+  margin: 0 -2.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+@media screen and (max-width: 768px) {
+  .m-header__nav ul {
+    flex-direction: row;
+    display: none;
+  }
+}
+.m-header__nav li {
+  display: block;
+}
+.m-header__nav li a {
+  padding: 0.7rem 2.5rem;
+  display: block;
+}
+.m-header__nav li:hover a, .m-header__nav li.current-menu-item a {
+  color: var(--bright-white);
+  background: var(--grey);
+}
+.m-header__social {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 0 0 0;
+  padding: 0;
+  gap: 5%;
+}
+.m-header__social li {
+  width: 21%;
+  margin-top: 5%;
+  overflow: hidden;
+  border-radius: 999rem;
+}
+.m-header__social li:hover {
+  opacity: 0.8;
+}
+
+/*--------- CONTENT ---------*/
+.m-content {
+  width: 100%;
+  max-width: 2560px;
+  padding: var(--gap-large);
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .m-content {
+    overflow-y: scroll;
+  }
+}
+
+.m-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: var(--gap);
+  row-gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  grid-auto-flow: dense;
+}
+@media screen and (max-width: 1260px) {
+  .m-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 998px) {
+  .m-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 768px) {
+  .m-gallery {
+    height: 20vh;
+  }
+}
+.m-gallery__item {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  height: 25rem;
+  position: relative;
+}
+.m-gallery__item.large {
+  grid-column: span 2/auto;
+}
+.m-gallery__item:hover .m-gallery__permalink {
+  display: block;
+}
+.m-gallery__item:hover .m-gallery__tooltip {
+  opacity: 1;
+}
+.m-gallery__item.info {
+  background: var(--black);
+  padding: var(--gap-large);
+}
+.m-gallery__item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.m-gallery__permalink {
+  height: 1.5rem;
+  width: 1.5rem;
+  background: url("../../img/icon-link.svg");
+  background-size: cover;
+  display: block;
+  display: none;
+  position: absolute;
+  bottom: var(--gap);
+  right: var(--gap);
+  z-index: 10;
+}
+.m-gallery__tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(35, 35, 35, 0.9);
+  padding: var(--gap-large);
+  opacity: 0;
+}
+
+/*--------- FOOTER ---------*/
+.m-footer {
+  position: fixed;
+  bottom: var(--gap-large);
+  right: var(--gap-large);
+  color: var(--white);
+  opacity: 0.5;
+  font-size: 0.7rem;
+  background: var(--black);
+  padding: var(--gap);
+  border-radius: 0.5rem;
+}
+
+.m-loading__mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: var(--grey);
+  z-index: 1000;
+  display: none;
+}
+.m-loading__icon {
+  height: 2rem;
+  width: 2rem;
+  background: url("../../img/loading.svg") no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: var(--gap);
+  right: var(--gap);
+  z-index: 1002;
+}
