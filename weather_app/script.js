@@ -53,9 +53,9 @@ function getWeather(zipCode = null, lat = null, lon = null) {
                         ${Math.round(data.main.temp)}°
                         </div>
                         <ul class="m-weather__other">
-                        <li>${data.wind.speed} m/s</li>
-                        <li>${data.weather[0].description}</li>
-                        <li>${data.main.humidity}%</li>
+                        <li><h3>Wind</h3><span>${data.wind.speed} m/s</span></li>
+                        <li><h3>Sky</h3><span>${data.weather[0].description}</span></li>
+                        <li><h3>Humidity</h3><span>${data.main.humidity}%</span></li>
                         </ul>
                     </div>
                 `;
@@ -101,10 +101,17 @@ function getForecast(lat, lon) {
 }
 
 function fetchWeatherByLocation() {
-    if (navigator.geolocation) {
+    if (localStorage.getItem('userLocation')) {
+        const { lat, lon } = JSON.parse(localStorage.getItem('userLocation'));
+        getWeather(null, lat, lon);
+    } else if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
+
+            // Save location to localStorage
+            localStorage.setItem('userLocation', JSON.stringify({ lat, lon }));
+
             getWeather(null, lat, lon);
         }, () => {
             document.getElementById('weather').innerHTML = `<p class="error">Error: Unable to retrieve your location</p>`;
@@ -113,6 +120,7 @@ function fetchWeatherByLocation() {
         document.getElementById('weather').innerHTML = `<p class="error">Error: Geolocation is not supported by this browser</p>`;
     }
 }
+
 
 // Automatically fetch weather on page load based on user's location
 window.onload = fetchWeatherByLocation;
