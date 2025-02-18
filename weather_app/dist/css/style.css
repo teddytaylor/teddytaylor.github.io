@@ -148,13 +148,13 @@ a {
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center;
-  width: 50%;
   width: 100%;
   text-transform: uppercase;
+  align-items: stretch;
 }
 @media screen and (min-width: 768px) {
   .m-weather__other {
+    align-items: center;
     width: 50%;
   }
 }
@@ -166,6 +166,7 @@ a {
   font-size: 2rem;
   flex-direction: column;
   width: 33.33%;
+  height: 100%;
 }
 .m-weather__other li h3 {
   margin: 0;
