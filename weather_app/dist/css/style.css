@@ -87,6 +87,7 @@ a {
   font-size: 3rem;
   text-transform: uppercase;
   word-wrap: break-word;
+  hyphens: auto;
 }
 .m-header__zip {
   display: flex;
